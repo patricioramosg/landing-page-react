@@ -23,6 +23,8 @@ body{
 
 .card{
   background-color: inherit;
+  width: 100%;
+  
 }
 
 .footer{
@@ -30,5 +32,6 @@ body{
 }
 
 .card img{
-  width: 200px;
+  width: 100%;
 }
+

@@ -1,17 +1,13 @@
-import img1 from "./images/drstrange.jpeg";
+import img1 from "./images/drs.jpg";
 import img2 from "./images/af3.jpeg";
 import img3 from "./images/elhombredelnorte.jpeg";
 import img4 from "./images/jujutsukaisen.jpeg";
-
-// const urlImagenes = peliculas.map((singleImage, i) => {
-//     return ({ singleImage })
-// });
 
 
 let peliculas = [
     {
         title: 'Doctor Strange en el Multiverso de la Locura',
-        img: img1,
+        url: img1,
         sinopsis: 'En DOCTOR STRANGE EN EL MULTIVERSO DE LA LOCURA de Marvel Studios, el Universo Cinematográfico de Marvel (MCU por sus siglas en inglés) se adentra en el Multiverso y amplía sus límites más que nunca. El film presenta un viaje a lo desconocido con Doctor Strange, quien, con la ayuda de aliados místicos nuevos y otros ya conocidos por la audiencia, atraviesa las alucinantes y peligrosas realidades alternativas del Multiverso para enfrentarse a un nuevo y misterioso adversario.',
     },
     {
@@ -33,25 +29,48 @@ let peliculas = [
 
 
 const Card = (props) => {
-
-
     return (
         <>
-            <div className="card" >
+            <div className="card d-flex justify-content-center" >
                 <img src={props.url} className="card-img-top" alt="..." />
-                <div className="card-body">
+                <div className="card-body d-flex flex-column">
                     <h5 className="card-title">{props.title}</h5>
                     <p className="card-text">{props.sinopsis}</p>
-                    <a href="#" className="btn btn-dark">Ver Horarios</a>
+                    <a href="#" className="btn btn-dark justify-content-end">Ver Horarios</a>
                 </div>
             </div>
         </>
     )
 };
 
-let Cards = () => {
-    return peliculas.map(pelicula => <Card {...pelicula} />)
+
+const Cards = () => {
+console.log(peliculas.map((props) => (
+    <Card
+        key={props.title}
+        title={props.title}
+        url={props.url}
+        sinopsis={props.sinopsis}
+    />
+)))
+
+    return (
+        <div className="d-flex justify-content-between flex-column flex-lg-row ">
+            {peliculas.map((props) => (
+                <Card
+                    key={props.title}
+                    title={props.title}
+                    url={props.url}
+                    sinopsis={props.sinopsis}
+                />
+            ))}
+        </div>
+    );
 };
+
+// let Cards = () => {
+//     return peliculas.map(pelicula => <Card {...pelicula} />)
+// };
 
 
 
